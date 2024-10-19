@@ -3,20 +3,18 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
     state: {
         device: 'desktop',
     },
     mutations: {
-        toggleDevice(state, value) {
-            console.log('toggleDeviceMutation', value);
-            state.device = value;
+        setDevice(state, device) {
+            state.device = device;
         }
     },
     actions: {
-        toggleDevice({ commit }, value) {
-            console.log('toggleDevice', value);
-            commit('toggleDevice', value);
+        toggleDevice({ commit }, device) {
+            commit('setDevice', device);
         }
     },
     getters: {
@@ -25,3 +23,5 @@ export default new Vuex.Store({
         }
     }
 });
+
+export default store;

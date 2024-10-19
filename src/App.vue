@@ -21,7 +21,6 @@ export default {
   },
   created() {
     const isMobile = this.$_isMobile();
-    console.log("isMobile: ", isMobile);
 
     if (isMobile) {
       this.toggleDevice("mobile");
