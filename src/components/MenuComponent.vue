@@ -1,39 +1,49 @@
 <template>
-  <b-menu class="container-menu" v-if="isActive">
-    <div>
-      <div class="menu-header">
-        <b-image
-          :src="require('@/assets/img/logo.png')"
-          alt="Logo"
-          class="logo-img"
-        ></b-image>
-        <span class="menu-label">News</span>
+  <div v-if="!isMobile">
+    <b-menu class="container-menu" v-if="isActive">
+      <div>
+        <div class="menu-header">
+          <b-image
+            :src="require('@/assets/img/logo.png')"
+            alt="Logo"
+            class="logo-img"
+          ></b-image>
+          <span class="menu-label">News</span>
+        </div>
+        <b-menu-item
+          label="Onboarding"
+          icon="link"
+          class="text"
+          @click="redirectRoute('/onboarding')"
+        ></b-menu-item>
+        <b-menu-item
+          label="Cadastro"
+          icon="pen-to-square"
+          class="text"
+          @click="redirectRoute('/')"
+        ></b-menu-item>
+        <b-menu-item
+          label="Postagens"
+          icon="file"
+          class="text"
+          @click="redirectRoute('/')"
+        ></b-menu-item>
       </div>
-      <b-menu-item
-        label="Onboarding"
-        icon="link"
-        class="text"
-        @click="redirectRoute('/onboarding')"
-      ></b-menu-item>
-      <b-menu-item
-        label="Cadastro"
-        icon="pen-to-square"
-        class="text"
-        @click="redirectRoute('/')"
-      ></b-menu-item>
-      <b-menu-item
-        label="Postagens"
-        icon="file"
-        class="text"
-        @click="redirectRoute('/')"
-      ></b-menu-item>
-    </div>
-    <p class="version">1.0.0</p>
-  </b-menu>
+      <p class="version">1.0.0</p>
+    </b-menu>
+  </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
+  computed: {
+    ...mapGetters(["device"]),
+    isMobile() {
+      return this.device === "mobile";
+    },
+  },
   data() {
     return {
       isActive: true,
