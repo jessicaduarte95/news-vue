@@ -1,3 +1,5 @@
+@import './_variables.scss';
+
 html {
 	height: 100%;
 	box-sizing: border-box;
@@ -11,7 +13,7 @@ body {
 	text-rendering: optimizeLegibility;
 	font-size: 1rem;
 	font-family: Avenir, Helvetica, Arial, sans-serif;
-	color: #000;
+	color: $blackColor;
   	margin: 0;
 }
 
@@ -27,7 +29,7 @@ body {
 	flex-direction: column;
 	width: 100%;
 	height: 150px;
-	background-color: #121f2f;
+	background-color: $primaryColor;
 	.menu-header {
 		margin-top: 0.5rem;
 	}

@@ -21,7 +21,7 @@
             label="Cadastro"
             icon="pen-to-square"
             class="text-menu"
-            @click="redirectRoute('/')"
+            @click="redirectRoute('/register')"
           ></b-menu-item>
           <b-menu-item
             label="Postagens"
@@ -55,7 +55,7 @@
               label="Cadastro"
               icon="pen-to-square"
               class="text-menu"
-              @click="redirectRoute('/')"
+              @click="redirectRoute('/register')"
             ></b-menu-item>
             <b-menu-item
               label="Postagens"
@@ -94,6 +94,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/styles/variables';
+
 .container {
   height: 100%;
 }
@@ -101,7 +103,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #121f2f;
+  background-color: $primaryColor;
   height: 100%;
   width: 200px;
   padding-top: 1.5rem;
@@ -116,7 +118,7 @@ export default {
 }
 .menu-label {
   text-align: center;
-  color: #fefefe;
+  color: $whiteColor;
   font-weight: 700;
   font-size: 1.5rem;
   padding: 0.8rem;
@@ -125,16 +127,16 @@ export default {
   margin-top: 0em;
 }
 .text-menu {
-  color: #fefefe;
+  color: $whiteColor;
   margin: 1rem;
   list-style-type: none;
   :hover {
-    color: #f7b176;
+    color: $secondaryColor;
   }
 }
 .version {
   text-align: center;
-  color: #fefefe;
+  color: $whiteColor;
   margin: 1rem;
   font-size: 0.6rem;
 }
