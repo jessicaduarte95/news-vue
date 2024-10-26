@@ -25,19 +25,11 @@ body {
 
 
 .mobile {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	height: 150px;
-	background-color: $primaryColor;
-	.menu-header {
-		margin-top: 0.5rem;
-	}
-	.text-menu  {
-		font-size: 0.9rem;
-	}
-	.list-menu {
+	#app {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		background-color: $grayColor
 	}
 }

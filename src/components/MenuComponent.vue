@@ -34,7 +34,7 @@
       </b-menu>
     </div>
     <div class="container" v-if="isMobile">
-      <b-menu v-if="isActive">
+      <b-menu class="container-mobile" v-if="isActive">
         <div>
           <div class="menu-header">
             <b-image
@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/styles/variables';
+@import "../assets/styles/variables";
 
 .container {
   height: 100%;
@@ -139,5 +139,22 @@ export default {
   color: $whiteColor;
   margin: 1rem;
   font-size: 0.6rem;
+}
+.mobile {
+  .container-mobile {
+    width: 100%;
+    height: 120px;
+    background-color: $primaryColor;
+  }
+  .menu-header {
+    margin: 0;
+  }
+  .text-menu {
+    font-size: 0.9rem;
+  }
+  .list-menu {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>
