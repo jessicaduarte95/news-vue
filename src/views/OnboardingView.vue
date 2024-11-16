@@ -1,12 +1,48 @@
 <template>
   <div class="container-onboarding">
     <div class="cards">
-      <div class="card-onboarding"></div>
-      <div class="card-onboarding"></div>
+      <div class="card-onboarding">
+        <img
+          :src="require('@/assets/img/onboardingImg2.png')"
+          alt="Imagem Onboarding"
+        />
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+        </p>
+      </div>
+      <div class="card-onboarding">
+        <img
+          :src="require('@/assets/img/onboardingImg3.png')"
+          alt="Imagem Onboarding"
+        />
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+        </p>
+      </div>
     </div>
     <div class="cards">
-      <div class="card-onboarding"></div>
-      <div class="card-onboarding"></div>
+      <div class="card-onboarding">
+        <img
+          :src="require('@/assets/img/onboardingImg4.png')"
+          alt="Imagem Onboarding"
+        />
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+        </p>
+      </div>
+      <div class="card-onboarding">
+        <img
+          :src="require('@/assets/img/onboardingImg1.png')"
+          alt="Imagem Onboarding"
+        />
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -48,6 +84,30 @@ export default {
   height: 20rem;
 }
 
+@media (min-width: 1400px) {
+  .card-onboarding {
+    width: 40rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .card-onboarding {
+    align-items: center;
+  }
+  img {
+    width: 13rem;
+    height: 13rem;
+  }
+}
+
+p {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  color: $primaryColor;
+}
+
 .mobile {
   .container-onboarding {
     padding: 3.5rem 0rem 3.5rem 0rem;
@@ -58,8 +118,20 @@ export default {
     align-items: center;
     gap: 2.5rem;
   }
-  .card-onboarding{
+  .card-onboarding {
     width: 20rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  img {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  p {
+    padding: 1rem;
   }
 }
 </style>
