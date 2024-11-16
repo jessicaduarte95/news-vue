@@ -2,6 +2,7 @@
   <div class="container-register">
     <div class="card">
       <div v-if="showImagem" class="img-content">
+          <img :src="require('@/assets/img/register.png')" alt="Imagem de fundo"/>
       </div>
       <div class="register-content">
         <p class="title">Cadastro</p>
@@ -75,10 +76,25 @@ export default {
 }
 
 .img-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40%;
   height: 100%;
   border-radius: 1rem 0rem 0rem 1rem;
-  background-color: $quaternaryColor;
+  background-color: $primaryColor;
+}
+
+img {
+  width: 18rem;
+  height: 18rem;
+}
+
+@media (max-width: 1400px) {
+  img {
+    width: 12rem;
+    height: 12rem;
+  }
 }
 
 .register-content {
