@@ -29,12 +29,22 @@ body {
 }
 
 .field {
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
 	input {
-		margin-bottom: 0.80rem;
 		border-radius: 2rem;
 		height: 3rem;
 		&:focus {
 			border-color: $tertiaryColor;
+		}
+	}
+	.help {
+		margin-left: 0.5rem;
+	}
+	.is-danger {
+		&:focus {
+			border-color: $dangerColor;
 		}
 	}
 	i {
@@ -67,8 +77,10 @@ button {
 		background-color: $grayColor
 	}
 	.field {
-		input {
+		&:not(:last-child) {
 			margin-bottom: 0.55rem;
+		}
+		input {
 			height: 2.3rem;
 		}
 	}

@@ -2,53 +2,110 @@
   <div class="container-register">
     <div class="card">
       <div v-if="showImagem" class="img-content">
-          <img :src="require('@/assets/img/register.png')" alt="Imagem de fundo"/>
+        <img
+          :src="require('@/assets/img/register.png')"
+          alt="Imagem de fundo"
+        />
       </div>
       <div class="register-content">
-        <p class="title">Cadastro</p>
-        <b-field>
-          <b-input v-model="name" placeholder="Nome"></b-input>
-        </b-field>
-        <b-field>
-          <b-input v-model="email" placeholder="E-mail"></b-input>
-        </b-field>
-        <b-field>
-          <b-input type="password" value="" placeholder="Senha" password-reveal>
-          </b-input>
-        </b-field>
-        <b-field>
-          <b-input
-            type="password"
-            value=""
-            placeholder="Confirmar senha"
-            password-reveal
+        <form id="formRegisterUser" @submit.prevent="submitForm">
+          <p class="title">Cadastro</p>
+          <b-field
+            :message="v$.form.name.$error ? 'Nome é obrigatório!' : ''"
+            :type="v$.form.name.$error ? 'is-danger' : ''"
           >
-          </b-input>
-        </b-field>
-        <b-button class="button-confirm">Salvar</b-button>
+            <b-input v-model="v$.form.name.$model" placeholder="Nome"></b-input>
+          </b-field>
+          <b-field
+            :message="v$.form.email.$error ? 'E-mail inválido!' : ''"
+            :type="v$.form.email.$error ? 'is-danger' : ''"
+          >
+            <b-input
+              v-model="v$.form.email.$model"
+              placeholder="E-mail"
+            ></b-input>
+          </b-field>
+          <b-field
+            :message="
+              v$.form.password.$error
+                ? 'Senha deve ter pelo menos 6 caracteres.'
+                : ''
+            "
+            :type="v$.form.password.$error ? 'is-danger' : ''"
+          >
+            <b-input
+              v-model="v$.form.password.$model"
+              type="password"
+              placeholder="Senha"
+              password-reveal
+            >
+            </b-input>
+          </b-field>
+          <b-field
+            :message="
+              v$.form.confirmPassword.$error ? 'As senhas devem coincidir.' : ''
+            "
+            :type="v$.form.confirmPassword.$error ? 'is-danger' : ''"
+          >
+            <b-input
+              v-model="v$.form.confirmPassword.$model"
+              type="password"
+              placeholder="Confirmar senha"
+              password-reveal
+            >
+            </b-input>
+          </b-field>
+          <b-button class="button-confirm">Salvar</b-button>
+        </form>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { required, minLength, sameAs, email } from "@vuelidate/validators";
+import useVuelidate from "@vuelidate/core";
+
 export default {
   name: "RegisterView",
-  data: function () {
+  setup() {
+    return { v$: useVuelidate() };
+  },
+  data() {
     return {
-      name: "",
-      email: "",
+      form: {
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      },
       showImagem: true,
     };
   },
   mounted() {
     this.checkDevice();
   },
+  validations() {
+    return {
+      form: {
+        name: { required, minLength: minLength(3) },
+        email: { required, email },
+        password: { required, minLength: minLength(6) },
+        confirmPassword: {
+          required,
+          sameAsPassword: sameAs(this.form.password),
+        },
+      },
+    };
+  },
   methods: {
     checkDevice() {
       const { body } = document;
       const rect = body.getBoundingClientRect();
       this.showImagem = rect.width >= 1000;
+    },
+    submitForm() {
+      this.v$.$touch();
     },
   },
 };
@@ -73,6 +130,7 @@ export default {
   margin-right: 18%;
   background-color: $whiteColor;
   border-radius: 1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 
 .img-content {
