@@ -11,7 +11,7 @@ import AppMain from "./components/AppMain.vue";
 import { mapActions } from "vuex";
 
 const { body } = document;
-const WIDTH = 992;
+const WIDTH = 1000;
 
 export default {
   name: "App",
