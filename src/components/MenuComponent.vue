@@ -15,7 +15,7 @@
             label="Onboarding"
             icon="link"
             class="text-menu"
-            @click="redirectRoute('/onboarding')"
+            @click="redirectRoute('/')"
           ></b-menu-item>
           <b-menu-item
             label="Cadastro"
@@ -49,7 +49,7 @@
               label="Onboarding"
               icon="link"
               class="text-menu"
-              @click="redirectRoute('/onboarding')"
+              @click="redirectRoute('/')"
             ></b-menu-item>
             <b-menu-item
               label="Cadastro"

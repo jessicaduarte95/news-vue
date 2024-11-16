@@ -9,7 +9,7 @@ const router = new VueRouter({
 	linkExactActiveClass: 'active',
 	routes: [
 		{
-			path: '/onboarding',
+			path: '/',
 			component: OnboardingView
 		},
 		{
