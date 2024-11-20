@@ -88,6 +88,31 @@ img {
 }
 
 p {
-    color: $quarternaryColor;
+  color: $quarternaryColor;
+}
+
+.mobile {
+  .container-posts {
+    padding: 2rem;
+    width: auto;
+  }
+  .search {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .field {
+    width: 100%;
+    margin-right: 2rem;
+  }
+  .post {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  img {
+    width: 15rem;
+    height: 15rem;
+  }
 }
 </style>
