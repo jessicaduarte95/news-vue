@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import OnboardingView from './views/OnboardingView.vue'
 import RegisterView from './views/RegisterView.vue'
+import PostsView from './views/PostsView.vue'
 
 Vue.use(VueRouter);
 
@@ -16,10 +17,14 @@ const router = new VueRouter({
 			path: '/register',
 			component: RegisterView
 		},
-		// {
-		// 	path: '*',
-		// 	redirect: '/'
-		// }
+		{
+			path: '/posts',
+			component: PostsView
+		},
+		{
+			path: '*',
+			redirect: '/'
+		}
 	]
 });
 

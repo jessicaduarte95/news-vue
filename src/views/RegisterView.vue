@@ -161,6 +161,9 @@ img {
 }
 
 .mobile {
+  .container-register {
+    padding: 0;
+  }
   .card {
     padding: 1.5rem;
     margin-left: 2rem;

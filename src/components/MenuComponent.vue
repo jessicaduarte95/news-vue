@@ -27,7 +27,7 @@
             label="Postagens"
             icon="file"
             class="text-menu"
-            @click="redirectRoute('/')"
+            @click="redirectRoute('/posts')"
           ></b-menu-item>
         </div>
         <p class="version">1.0.0</p>
@@ -61,7 +61,7 @@
               label="Postagens"
               icon="file"
               class="text-menu"
-              @click="redirectRoute('/')"
+              @click="redirectRoute('/posts')"
             ></b-menu-item>
           </div>
         </div>
@@ -98,6 +98,7 @@ export default {
 
 .container {
   height: 100%;
+  position: fixed;
 }
 .container-desktop {
   display: flex;
@@ -141,6 +142,9 @@ export default {
   font-size: 0.6rem;
 }
 .mobile {
+  .container {
+    position: static;
+  }
   .container-mobile {
     width: 100%;
     height: 120px;

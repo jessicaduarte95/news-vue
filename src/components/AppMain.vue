@@ -1,24 +1,36 @@
 <template>
-	<section id="div-app-main" class="app-main">
-		<transition name="fade-transform" mode="out-in">
-			<router-view :key="key" />
-		</transition>
-	</section>
+  <section id="div-app-main" class="app-main">
+    <transition name="fade-transform" mode="out-in">
+      <router-view :key="key" />
+    </transition>
+  </section>
 </template>
 
 <script>
 export default {
-	name: 'AppMain',
-	computed: {
-		key() {
-			return this.$route.path;
-		}
-	}
+  name: "AppMain",
+  computed: {
+    key() {
+      return this.$route.path;
+    },
+  },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .app-main {
-	width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin-left: 200px;
+}
+
+.mobile {
+  .app-main {
+	flex: unset;
+    box-sizing: unset;
+    margin-left: 0;
+	height: 100%;
+  }
 }
 </style>
