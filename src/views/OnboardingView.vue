@@ -110,6 +110,11 @@ p {
 
 .mobile {
   .container-onboarding {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    width: 100%;
     padding: 3.5rem 0rem 3.5rem 0rem;
     gap: 2.5rem;
   }
@@ -117,6 +122,7 @@ p {
     flex-direction: column;
     align-items: center;
     gap: 2.5rem;
+    margin-bottom: 2.5rem;
   }
   .card-onboarding {
     width: 20rem;
