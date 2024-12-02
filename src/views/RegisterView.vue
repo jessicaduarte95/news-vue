@@ -55,7 +55,8 @@
             >
             </b-input>
           </b-field>
-          <b-button class="button-confirm">Salvar</b-button>
+          <b-button class="button-confirm" @click="submitForm">Salvar</b-button>
+          <b-loading :is-full-page="true" v-model="isLoading"></b-loading>
         </form>
       </div>
     </div>
@@ -65,6 +66,7 @@
 <script>
 import { required, minLength, sameAs, email } from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
+import { mapActions } from "vuex";
 
 export default {
   name: "RegisterView",
@@ -98,7 +100,13 @@ export default {
       },
     };
   },
+  computed: {
+    isLoading() {
+      return this.$store.getters.isLoading;
+    },
+  },
   methods: {
+    ...mapActions("registerUser", ["createUser"]),
     checkDevice() {
       const { body } = document;
       const rect = body.getBoundingClientRect();
@@ -106,6 +114,7 @@ export default {
     },
     submitForm() {
       this.v$.$touch();
+      this.createUser(this.form);
     },
   },
 };
