@@ -1,11 +1,11 @@
-class UsersSevice {
+import BaseService from "@/config/base-service";
+
+class UsersSevice extends BaseService {
+    constructor() {
+        super(`user`)
+    }
     createUser = (payload) => {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                console.log("Passou aqui", payload);
-                resolve();
-            }, 1000);
-        });
+        return this.post(payload, `register`)
     }
 }
 
