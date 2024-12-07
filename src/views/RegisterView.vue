@@ -113,9 +113,18 @@ export default {
       this.showImagem = rect.width >= 1000;
     },
     submitForm() {
-      this.v$.$touch();
       this.createUser(this.form);
+      this.resetForm();
     },
+    resetForm() {
+      this.form = { name: '', email: '', password: '' };
+
+      for (const key in this.v$.form) {
+        if (typeof this.v$.form[key].$reset === 'function') {
+          this.v$.form[key].$reset();
+        }
+      }
+    }
   },
 };
 </script>
