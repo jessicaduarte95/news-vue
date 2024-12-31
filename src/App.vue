@@ -20,15 +20,26 @@ export default {
     AppMain,
   },
   created() {
-    const isMobile = this.$_isMobile();
-
-    if (isMobile) {
-      this.toggleDevice("mobile");
-      document.body.classList.add("mobile");
-    }
+    this.checkDevice();
+  },
+  mounted() {
+    window.addEventListener("resize", this.checkDevice);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.checkDevice);
   },
   methods: {
     ...mapActions(["toggleDevice"]),
+    checkDevice() {
+      const isMobile = this.$_isMobile();
+      this.toggleDevice(isMobile ? "mobile" : "desktop");
+
+      if (isMobile) {
+        document.body.classList.add("mobile");
+      } else {
+        document.body.classList.remove("mobile");
+      }
+    },
     $_isMobile() {
       const rect = body.getBoundingClientRect();
       return rect.width - 1 < WIDTH;
