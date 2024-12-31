@@ -17,39 +17,80 @@
         </b-field>
       </div>
     </div>
-    <div class="post">
-      <img
-        :src="require('@/assets/img/onboardingImg4.png')"
-        alt="Imagem de fundo"
-      />
-      <div class="data-post">
-        <p>Jéssica Duarte</p>
-        <p>18/11//2024</p>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
+    <div>
+      <div class="post">
+        <img
+          :src="require('@/assets/img/onboardingImg4.png')"
+          alt="Imagem de fundo"
+        />
+        <div class="data-post">
+          <p>Jéssica Duarte</p>
+          <p>18/11//2024</p>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only
+            five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s with
+            the release of Letraset sheets containing Lorem Ipsum passages, and
+            more recently with desktop publishing software like Aldus PageMaker
+            including versions of Lorem Ipsum.
+          </p>
+        </div>
       </div>
+      <hr>
+        <b-pagination
+            :total="total"
+            v-model="current"
+            :range-before="rangeBefore"
+            :range-after="rangeAfter"
+            :order="order"
+            :size="size"
+            :simple="isSimple"
+            :rounded="isRounded"
+            :per-page="perPage"
+            :icon-prev="prevIcon"
+            :icon-next="nextIcon"
+            aria-next-label="Next page"
+            aria-previous-label="Previous page"
+            aria-page-label="Page"
+            aria-current-label="Current page"
+            :page-input="hasInput"
+            :page-input-position="inputPosition"
+            :debounce-page-input="inputDebounce"
+        />
     </div>
   </div>
 </template>
 <script>
 export default {
   name: "PostsView",
+  data() {
+    return {
+        total: 30,
+        current: 1,
+        perPage: 5,
+        rangeBefore: 3,
+        rangeAfter: 1,
+        order: '',
+        size: '',
+        isSimple: false,
+        isRounded: false,
+        hasInput: false,
+        prevIcon: 'chevron-left',
+        nextIcon: 'chevron-right',
+        inputPosition: '',
+        inputDebounce: ''
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
 @import "../assets/styles/variables";
 
 .container-posts {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   padding: 5% 20% 5% 20%;
   background-color: $grayColor;
@@ -73,6 +114,7 @@ export default {
 .post {
   display: flex;
   padding: 2rem;
+  margin-bottom: 2rem;
   border-radius: 1rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   background-color: $whiteColor;
