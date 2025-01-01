@@ -19,7 +19,7 @@
           ></b-menu-item>
           <b-menu-item
             label="Cadastro"
-            icon="pen-to-square"
+            icon="id-card"
             class="text-menu"
             @click="redirectRoute('/register')"
           ></b-menu-item>
@@ -29,8 +29,20 @@
             class="text-menu"
             @click="redirectRoute('/posts')"
           ></b-menu-item>
+          <b-menu-item
+            label="Cadastrar Posts"
+            icon="pen-to-square"
+            class="text-menu"
+          ></b-menu-item>
         </div>
-        <p class="version">1.0.0</p>
+        <div>
+          <b-menu-item
+            label="Entrar"
+            icon="circle-user"
+            class="text-login"
+          ></b-menu-item>
+          <p class="version">1.0.0</p>
+        </div>
       </b-menu>
     </div>
     <div class="container" v-if="isMobile">
@@ -128,6 +140,16 @@ export default {
   margin-top: 0em;
 }
 .text-menu {
+  color: $whiteColor;
+  margin: 1rem;
+  list-style-type: none;
+  :hover {
+    color: $secondaryColor;
+  }
+}
+.text-login {
+  display: flex;
+  justify-content: center;
   color: $whiteColor;
   margin: 1rem;
   list-style-type: none;
