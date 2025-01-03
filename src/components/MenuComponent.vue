@@ -40,6 +40,7 @@
             label="Entrar"
             icon="circle-user"
             class="text-login"
+            @click="modalLogin()"
           ></b-menu-item>
           <p class="version">1.0.0</p>
         </div>
@@ -79,13 +80,19 @@
         </div>
       </b-menu>
     </div>
+    <login-view :openModalLogin.sync="openModalLogin"/>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import LoginView from "../views/LoginView.vue";
 
 export default {
+  name: "MenuComponent",
+  components: {
+    LoginView,
+  },
   computed: {
     ...mapGetters(["device"]),
     isMobile() {
@@ -95,11 +102,15 @@ export default {
   data() {
     return {
       isActive: true,
+      openModalLogin: false,
     };
   },
   methods: {
     redirectRoute(path) {
       this.$router.push(path);
+    },
+    modalLogin() {
+      this.openModalLogin = !this.openModalLogin;
     },
   },
 };
