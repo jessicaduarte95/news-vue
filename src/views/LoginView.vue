@@ -18,9 +18,9 @@
         ></b-image>
         <span class="title">News</span>
       </div>
-      <form id="formLogin">
+      <form id="formLogin" @submit.prevent="submitForm">
         <b-field
-          :message="v$.form.email.$error ? 'E-mail inválido!' : ''"
+          :message="v$.form.email.$error ? 'E-mail inválido' : ''"
           :type="v$.form.email.$error ? 'is-danger' : ''"
         >
           <b-input
@@ -40,7 +40,7 @@
           >
           </b-input>
         </b-field>
-        <b-button class="button-confirm">Entrar</b-button>
+        <b-button class="button-confirm" @click="submitForm">Entrar</b-button>
       </form>
     </div>
   </b-modal>
@@ -48,6 +48,7 @@
 <script>
 import { required, minLength, email } from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
+import { mapActions } from "vuex";
 
 export default {
   name: "LoginView",
@@ -87,8 +88,23 @@ export default {
     },
   },
   methods: {
+    ...mapActions("login", ["login"]),
     closeModal() {
       this.$emit("update:openModalLogin", false);
+    },
+    submitForm() {
+      this.login(this.form);
+      this.closeModal();
+      this.resetForm();
+    },
+    resetForm() {
+      this.form = { email: "", password: "" };
+
+      for (const key in this.v$.form) {
+        if (typeof this.v$.form[key].$reset === "function") {
+          this.v$.form[key].$reset();
+        }
+      }
     },
   },
 };

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import registerUser from './modules/registerUser';
+import login from './modules/login';
 
 Vue.use(Vuex);
 
@@ -33,7 +34,8 @@ const store = new Vuex.Store({
         isLoading: (state) => state.isLoading,
     },
     modules: {
-        registerUser
+        registerUser,
+        login
     },
 });
 
