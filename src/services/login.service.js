@@ -4,8 +4,12 @@ class LoginService extends BaseService {
     constructor() {
         super(`login`)
     }
-    login = (payload) => {
-        return this.post(payload, '')
+    login = async (payload) => {
+        const data = await this.post(payload, '')
+        if (data.data.result.token) {
+            localStorage.setItem('authToken', data.data?.result?.token);
+        }
+        return data;
     }
 }
 
