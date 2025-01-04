@@ -113,18 +113,18 @@ export default {
       this.showImagem = rect.width >= 1000;
     },
     submitForm() {
-      this.createUser(this.form);
+      this.createUser({ payload: this.form, vm: this });
       this.resetForm();
     },
     resetForm() {
-      this.form = { name: '', email: '', password: '' };
+      this.form = { name: "", email: "", password: "" };
 
       for (const key in this.v$.form) {
-        if (typeof this.v$.form[key].$reset === 'function') {
+        if (typeof this.v$.form[key].$reset === "function") {
           this.v$.form[key].$reset();
         }
       }
-    }
+    },
   },
 };
 </script>

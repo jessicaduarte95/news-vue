@@ -94,7 +94,7 @@ export default {
       this.$emit("update:openModalLogin", false);
     },
     submitForm() {
-      this.login(this.form);
+      this.login({payload: this.form, vm: this});
       this.closeModal();
       this.resetForm();
     },
