@@ -9,7 +9,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         device: 'desktop',
-        isLoading: false
+        isLoading: false,
+        activeUser: false
     },
     mutations: {
         setDevice(state, device) {
@@ -17,6 +18,9 @@ const store = new Vuex.Store({
         },
         setLoading(state, isLoading) {
             state.isLoading = isLoading;
+        },
+        setActiveUser(state, activeUser) {
+            state.activeUser = activeUser;
         }
     },
     actions: {
@@ -26,12 +30,16 @@ const store = new Vuex.Store({
         setLoading({ commit }, isLoading) {
             commit('setLoading', isLoading);
         },
+        setActiveUser({ commit }, activeUser) {
+            commit('setActiveUser', activeUser);
+        },
     },
     getters: {
         device: state => {
             return state.device
         },
         isLoading: (state) => state.isLoading,
+        activeUser: (state) => state.activeUser,
     },
     modules: {
         registerUser,

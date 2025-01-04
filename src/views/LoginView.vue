@@ -62,6 +62,7 @@ export default {
         email: "",
         password: "",
       },
+      activeUser: false,
     };
   },
   validations() {
@@ -94,7 +95,7 @@ export default {
       this.$emit("update:openModalLogin", false);
     },
     submitForm() {
-      this.login({payload: this.form, vm: this});
+      this.login({ payload: this.form, vm: this });
       this.closeModal();
       this.resetForm();
     },

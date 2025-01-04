@@ -33,16 +33,17 @@
             label="Cadastrar Posts"
             icon="pen-to-square"
             class="text-menu"
+            v-if="this.$store.getters.activeUser"
           ></b-menu-item>
         </div>
         <div>
           <b-menu-item
-            label="Entrar"
+            :label="this.$store.getters.activeUser ? 'Sair' : 'Entrar'"
             icon="circle-user"
             class="text-login"
-            @click="modalLogin()"
+            @click="openModal()"
           ></b-menu-item>
-          <p class="version">1.0.0</p>
+          <p class="version">1.0.1</p>
         </div>
       </b-menu>
     </div>
@@ -80,7 +81,7 @@
         </div>
       </b-menu>
     </div>
-    <login-view :openModalLogin.sync="openModalLogin"/>
+    <login-view :openModalLogin.sync="openModalLogin" />
   </div>
 </template>
 
@@ -108,6 +109,11 @@ export default {
   methods: {
     redirectRoute(path) {
       this.$router.push(path);
+    },
+    openModal() {
+      if (!this.$store.getters.activeUser) {
+        this.modalLogin();
+      }
     },
     modalLogin() {
       this.openModalLogin = !this.openModalLogin;

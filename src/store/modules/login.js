@@ -7,6 +7,7 @@ const actions = {
         try {
             commit('setLoading', true, { root: true });
             const { data } = await LoginService.login(payload)
+            commit('setActiveUser', true, { root: true });
             return data
         } catch (error) {
             commit('setLoading', false, { root: true });
