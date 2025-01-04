@@ -41,6 +41,7 @@
           </b-input>
         </b-field>
         <b-button class="button-confirm" @click="submitForm">Entrar</b-button>
+        <div class="forgot-password">Esqueci minha senha</div>
       </form>
     </div>
   </b-modal>
@@ -135,5 +136,12 @@ export default {
   font-weight: 700;
   font-size: 3rem;
   padding: 0.8rem;
+}
+.forgot-password {
+  text-align: center;
+  color: $tertiaryColor;
+  font-weight: 550;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
 }
 </style>
