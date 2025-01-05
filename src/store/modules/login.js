@@ -8,6 +8,12 @@ const actions = {
             commit('setLoading', true, { root: true });
             const { data } = await LoginService.login(payload)
             commit('setActiveUser', true, { root: true });
+            const dataUser = {
+                id: data.result._id,
+                name: data.result.name,
+                email: data.result.email
+            }
+            commit('setDataUser', dataUser, { root: true });
             return data
         } catch (error) {
             commit('setLoading', false, { root: true });

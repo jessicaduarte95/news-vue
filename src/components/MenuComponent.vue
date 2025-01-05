@@ -37,6 +37,7 @@
           ></b-menu-item>
         </div>
         <div>
+          <p class="text-name">{{ this.$store.getters.dataUser.name }}</p>
           <b-menu-item
             :label="this.$store.getters.activeUser ? 'Sair' : 'Entrar'"
             icon="circle-user"
@@ -163,6 +164,12 @@ export default {
   :hover {
     color: $secondaryColor;
   }
+}
+.text-name {
+  display: flex;
+  justify-content: center;
+  color: $secondaryColor;
+  margin: 1rem;
 }
 .text-login {
   display: flex;
