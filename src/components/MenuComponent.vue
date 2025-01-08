@@ -21,6 +21,7 @@
             label="Cadastro"
             icon="id-card"
             class="text-menu"
+            v-if="!this.$store.getters.activeUser"
             @click="redirectRoute('/register')"
           ></b-menu-item>
           <b-menu-item

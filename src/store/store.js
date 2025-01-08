@@ -10,8 +10,10 @@ const store = new Vuex.Store({
     state: {
         device: 'desktop',
         isLoading: false,
-        activeUser: false,
-        dataUser: {}
+        activeUser: localStorage.getItem("userActive") || null,
+        dataUser: {
+            name: localStorage.getItem("userName") || ''
+        }
     },
     mutations: {
         setDevice(state, device) {

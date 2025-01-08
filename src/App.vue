@@ -10,6 +10,8 @@ import MenuComponent from "./components/MenuComponent.vue";
 import AppMain from "./components/AppMain.vue";
 import { mapActions } from "vuex";
 
+import AuthService from "./services/auth.service";
+
 const { body } = document;
 const WIDTH = 1000;
 
@@ -21,6 +23,10 @@ export default {
   },
   created() {
     this.checkDevice();
+    const authToken = localStorage.getItem("authToken");
+    if (authToken) {
+      AuthService.startRefreshTokenTimer();
+    }
   },
   mounted() {
     window.addEventListener("resize", this.checkDevice);
