@@ -27,10 +27,10 @@ export default {
 
 .mobile {
   .app-main {
-	flex: unset;
+    flex: unset;
     box-sizing: unset;
     margin-left: 0;
-	height: 100%;
+    height: 100%;
   }
 }
 </style>

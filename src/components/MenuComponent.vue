@@ -52,13 +52,15 @@
     <div class="container" v-if="isMobile">
       <b-menu class="container-mobile" v-if="isActive">
         <div>
-          <div class="menu-header">
-            <b-image
-              :src="require('@/assets/img/logo.png')"
-              alt="Logo"
-              class="logo-img"
-            ></b-image>
-            <span class="menu-label">News</span>
+          <div>
+            <div class="menu-header">
+              <b-image
+                :src="require('@/assets/img/logo.png')"
+                alt="Logo"
+                class="logo-img"
+              ></b-image>
+              <span class="menu-label">News</span>
+            </div>
           </div>
           <div class="list-menu">
             <b-menu-item
@@ -203,11 +205,12 @@ export default {
   }
   .container-mobile {
     width: 100%;
-    height: 120px;
+    height: 130px;
     background-color: $primaryColor;
   }
   .menu-header {
     margin: 0;
+    padding: 0.5rem;
   }
   .text-menu {
     font-size: 0.9rem;
