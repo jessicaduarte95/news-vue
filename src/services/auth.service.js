@@ -3,6 +3,7 @@ import BaseService from "@/config/base-service";
 class AuthService extends BaseService {
     constructor() {
         super(`auth`)
+        this.intervalId = null
     }
     refreshAccessToken = async (userId) => {
         const payload = {
@@ -15,15 +16,21 @@ class AuthService extends BaseService {
         return data;
     }
     startRefreshTokenTimer = async () => {
-        setInterval(async () => {
+        clearInterval(this.intervalId);
+        this.intervalId = setInterval(async () => {
             try {
                 const userId = localStorage.getItem("userId");
-                console.log('userId: ', userId)
                 await this.refreshAccessToken(userId);
             } catch (error) {
                 console.error('Failed to refresh access token:', error);
             }
         }, 10 * 60 * 1000);
+    }
+    stopRefreshTokenTimer = () => {
+        if (this.intervalId !== null) {
+            clearInterval(this.intervalId);
+            this.intervalId = null;
+        }
     }
 }
 

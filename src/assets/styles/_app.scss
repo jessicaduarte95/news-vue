@@ -67,6 +67,19 @@ button {
 	}
 }
 
+.button-cancel {
+	border-radius: 2rem;
+	background-color: $tertiaryColor;
+	color: $whiteColor;
+	font-weight: 500;
+	&:focus {
+		border-color: $tertiaryColor;
+	}
+	&:hover {
+		color: $whiteColor;
+	}
+}
+
 
 .mobile {
 	#app {

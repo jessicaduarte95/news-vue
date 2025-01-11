@@ -84,17 +84,20 @@
       </b-menu>
     </div>
     <login-view :openModalLogin.sync="openModalLogin" />
+    <logout-view :openModalLogout.sync="openModalLogout" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import LoginView from "../views/LoginView.vue";
+import LogoutView from "../views/LogoutView.vue";
 
 export default {
   name: "MenuComponent",
   components: {
     LoginView,
+    LogoutView,
   },
   computed: {
     ...mapGetters(["device"]),
@@ -106,6 +109,7 @@ export default {
     return {
       isActive: true,
       openModalLogin: false,
+      openModalLogout: false,
     };
   },
   methods: {
@@ -115,10 +119,15 @@ export default {
     openModal() {
       if (!this.$store.getters.activeUser) {
         this.modalLogin();
+      } else {
+        this.modalLogout();
       }
     },
     modalLogin() {
       this.openModalLogin = !this.openModalLogin;
+    },
+    modalLogout() {
+      this.openModalLogout = !this.openModalLogout;
     },
   },
 };
