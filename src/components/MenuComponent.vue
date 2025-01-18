@@ -35,6 +35,7 @@
             icon="pen-to-square"
             class="text-menu"
             v-if="this.$store.getters.activeUser"
+            @click="redirectRoute('register-posts')"
           ></b-menu-item>
         </div>
         <div>
@@ -90,6 +91,7 @@
               icon="pen-to-square"
               class="text-menu"
               v-if="this.$store.getters.activeUser"
+              @click="redirectRoute('register-posts')"
             ></b-menu-item>
           </div>
         </div>

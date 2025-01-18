@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import OnboardingView from './views/OnboardingView.vue'
 import RegisterView from './views/RegisterView.vue'
 import PostsView from './views/PostsView.vue'
+import RegisterPosts from './views/RegisterPosts.vue'
 
 Vue.use(VueRouter);
 
@@ -20,6 +21,10 @@ const router = new VueRouter({
 		{
 			path: '/posts',
 			component: PostsView
+		},
+		{
+			path: '/register-posts',
+			component: RegisterPosts
 		},
 		{
 			path: '*',
