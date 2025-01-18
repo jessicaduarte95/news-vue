@@ -52,7 +52,7 @@
     <div class="container" v-if="isMobile">
       <b-menu class="container-mobile" v-if="isActive">
         <div>
-          <div>
+          <div class="content-header">
             <div class="menu-header">
               <b-image
                 :src="require('@/assets/img/logo.png')"
@@ -61,6 +61,9 @@
               ></b-image>
               <span class="menu-label">News</span>
             </div>
+            <p class="text-login-logout" @click="openModal()">
+              {{ this.$store.getters.activeUser ? "Sair" : "Entrar" }}
+            </p>
           </div>
           <div class="list-menu">
             <b-menu-item
@@ -73,6 +76,7 @@
               label="Cadastro"
               icon="pen-to-square"
               class="text-menu"
+              v-if="!this.$store.getters.activeUser"
               @click="redirectRoute('/register')"
             ></b-menu-item>
             <b-menu-item
@@ -81,9 +85,20 @@
               class="text-menu"
               @click="redirectRoute('/posts')"
             ></b-menu-item>
+            <b-menu-item
+              label="Cadastrar Posts"
+              icon="pen-to-square"
+              class="text-menu"
+              v-if="this.$store.getters.activeUser"
+            ></b-menu-item>
           </div>
         </div>
       </b-menu>
+      <div>
+        <p class="text-name" v-if="this.$store.getters.activeUser">
+          Olá {{ this.$store.getters.dataUser.name }}!
+        </p>
+      </div>
     </div>
     <login-view :openModalLogin.sync="openModalLogin" />
     <logout-view :openModalLogout.sync="openModalLogout" />
@@ -205,19 +220,37 @@ export default {
   }
   .container-mobile {
     width: 100%;
-    height: 130px;
+    height: 120px;
     background-color: $primaryColor;
+  }
+  .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1rem;
   }
   .menu-header {
     margin: 0;
     padding: 0.5rem;
   }
   .text-menu {
+    margin: 0.6rem;
     font-size: 0.9rem;
   }
   .list-menu {
     display: flex;
     justify-content: space-between;
+  }
+  .text-login-logout {
+    color: $whiteColor;
+    font-size: 0.9rem;
+  }
+  .text-name {
+    display: flex;
+    justify-content: center;
+    color: $primaryColor;
+    margin: 0;
+    margin-top: 0.6rem;
   }
 }
 </style>

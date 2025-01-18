@@ -145,4 +145,9 @@ export default {
   font-size: 0.8rem;
   margin-top: 0.3rem;
 }
+.mobile {
+  .container-modal {
+    width: 22rem;
+  }
+}
 </style>

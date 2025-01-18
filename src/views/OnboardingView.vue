@@ -115,7 +115,7 @@ p {
     justify-content: center;
     height: auto;
     width: 100%;
-    padding: 3.5rem 0rem 3.5rem 0rem;
+    padding: 2.5rem 0rem 2.5rem 0rem;
     gap: 2.5rem;
   }
   .cards {
