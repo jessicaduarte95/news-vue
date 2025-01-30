@@ -1,27 +1,76 @@
 <template>
   <div class="container-register-posts">
+    <div class="header">
+      <h1 class="title">Cadastro de Posts</h1>
+    </div>
     <div class="card">
       <div class="register-content">
-        <form id="formRegisterPosts"></form>
+        <form id="formRegisterPosts">
+          <div id="editor">
+            <vue2-tinymce-editor
+              v-model="content"
+              :height="600"
+            ></vue2-tinymce-editor>
+          </div>
+        </form>
       </div>
+    </div>
+    <div class="container-button">
+      <b-button class="button-confirm" @click="submitForm">Salvar</b-button>
     </div>
   </div>
 </template>
 <script>
+import { Vue2TinymceEditor } from "vue2-tinymce-editor";
+
 export default {
   name: "RegisterPosts",
+  components: {
+    Vue2TinymceEditor,
+  },
+  data() {
+    return {
+      content: "",
+    };
+  },
+  methods: {
+    submitForm() {
+      console.log("TESTE: ", this.content);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import "../assets/styles/variables";
 
 .container-register-posts {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   height: 100%;
   width: 100%;
-  padding: 1.5rem;
+  padding: 5% 10% 5% 10%;
   background-color: $grayColor;
+}
+.header {
+  margin-bottom: 30px;
+}
+.title {
+  font-size: 3rem;
+}
+.container-button {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+  width: 100%;
+}
+.button-confirm {
+  width: 200px;
+}
+.mobile {
+  .title {
+    text-align: center;
+  }
+  .container-button {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

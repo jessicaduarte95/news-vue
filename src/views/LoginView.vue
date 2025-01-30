@@ -98,6 +98,7 @@ export default {
       this.login({ payload: this.form, vm: this });
       this.closeModal();
       this.resetForm();
+      this.$router.push('/')
     },
     resetForm() {
       this.form = { email: "", password: "" };

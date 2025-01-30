@@ -71,6 +71,7 @@ export default {
         this.setActiveUser(null);
         this.setDataUser("");
         this.closeModal();
+        this.$router.push('/')
       } catch (error) {
         console.log("Erro: ".error);
       }

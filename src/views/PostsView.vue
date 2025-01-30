@@ -97,7 +97,7 @@ export default {
 }
 
 .title {
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 .search {
