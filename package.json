@@ -18,7 +18,6 @@
     "axios": "^0.21.1",
     "buefy": "^0.9.29",
     "core-js": "^3.8.3",
-    "vue": "^2.6.14",
     "vue-router": "3.0.2",
     "vue2-tinymce-editor": "^0.0.1",
     "vuex": "3.1.0"
@@ -33,7 +32,8 @@
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.79.4",
     "sass-loader": "^16.0.2",
-    "vue-template-compiler": "^2.6.14"
+    "vue": "^2.7.16",
+    "vue-template-compiler": "^2.7.16"
   },
   "eslintConfig": {
     "root": true,
