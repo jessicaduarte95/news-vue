@@ -45,7 +45,6 @@ export default {
 
 .container-register-posts {
   height: 100%;
-  width: 100%;
   padding: 5% 10% 5% 10%;
   background-color: $grayColor;
 }
