@@ -22,6 +22,7 @@
 </template>
 <script>
 import { Vue2TinymceEditor } from "vue2-tinymce-editor";
+import { mapActions } from "vuex";
 
 export default {
   name: "RegisterPosts",
@@ -34,8 +35,10 @@ export default {
     };
   },
   methods: {
+    ...mapActions("post", ["createPost"]),
     submitForm() {
-      console.log("TESTE: ", this.content);
+      const id = localStorage.getItem("userId");
+      this.createPost({ payload: { content: this.content, id }, vm: this });
     },
   },
 };

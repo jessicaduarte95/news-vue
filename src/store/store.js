@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 
 import registerUser from './modules/registerUser';
 import login from './modules/login';
+import post from './modules/post';
 
 Vue.use(Vuex);
 
@@ -53,7 +54,8 @@ const store = new Vuex.Store({
     },
     modules: {
         registerUser,
-        login
+        login,
+        post
     },
 });
 
