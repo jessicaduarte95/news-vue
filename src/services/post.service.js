@@ -5,7 +5,7 @@ class PostSevice extends BaseService {
         super(`post`)
     }
     createPost = (payload) => {
-        const id = payload.id
+        const id = localStorage.getItem("userId");
         return this.post(payload, `register/${id}`)
     }
 }

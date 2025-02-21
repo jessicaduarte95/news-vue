@@ -37,8 +37,7 @@ export default {
   methods: {
     ...mapActions("post", ["createPost"]),
     submitForm() {
-      const id = localStorage.getItem("userId");
-      this.createPost({ payload: { content: this.content, id }, vm: this });
+      this.createPost({ payload: { content: this.content }, vm: this });
     },
   },
 };
