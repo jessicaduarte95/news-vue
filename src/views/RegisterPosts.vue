@@ -38,6 +38,7 @@ export default {
     ...mapActions("post", ["createPost"]),
     submitForm() {
       this.createPost({ payload: { content: this.content }, vm: this });
+      this.$router.push('/posts')
     },
   },
 };
